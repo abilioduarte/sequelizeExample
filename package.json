@@ -1,0 +1,22 @@
+{
+  "name": "pmt-controle-notas-fiscais-icms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://primetalsgit/abilio.duarte/pmt-controle-notas-fiscais-icms.git"
+  },
+  "author": "aduarte",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.5.0",
+    "tedious": "^11.0.3"
+  }
+}
