@@ -1,0 +1,32 @@
+USE [L2BRK]
+GO
+
+/****** Object:  Table [dbo].[POSTS]    Script Date: 2/12/2021 6:00:29 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[POSTS](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[title] [varchar](50) NULL,
+	[content] [varchar](100) NULL,
+	[userId] [bigint] NULL,
+	[published] [varchar](30) NULL,
+	[updated] [varchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[POSTS]  WITH CHECK ADD  CONSTRAINT [FK_POST] FOREIGN KEY([userId])
+REFERENCES [dbo].[USERS] ([id])
+GO
+
+ALTER TABLE [dbo].[POSTS] CHECK CONSTRAINT [FK_POST]
+GO
+
+
