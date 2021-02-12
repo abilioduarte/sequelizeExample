@@ -15,11 +15,6 @@ class Posts extends Model {
             content: {
                 type: DataTypes.STRING
             },
-            // userId: {
-            //     type: DataTypes.BIGINT
-            //     // references: {model: 'users', key: 'id'},
-            //     // onUpdate: 'CASCADE'
-            // },
             published: {
                 type: DataTypes.STRING
             },

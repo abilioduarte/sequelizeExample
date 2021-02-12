@@ -4,7 +4,6 @@ const GenericController = require('../controllers/GenericController');
 module.exports = {
     async findAllUsers(req, res) {
         const users = await GenericController.findAll(Users);
-        // const users = await Users.findAll();
         return res.status(200).json(users);
     },
     async findUserById(req, res) {
@@ -60,11 +59,7 @@ module.exports = {
             return res.status(400).json({message : 'password length must be at least 6 characters long.'});
         }
 
-        const usersEmail = await Users.findAll({
-            where: {
-              email: _email
-            }
-        });
+        const usersEmail = await GenericController.findByEmail(Users, _email);
 
         if (Object.keys(usersEmail).length != 0) {
             return res.status(400).json({message : 'Usuário já existe'});
@@ -72,7 +67,6 @@ module.exports = {
 
         if (success) {
             const users = await Users.create({id, displayName, email, password, image});
-            // return res.json(users);
             return res.status(201).json({token : 'user created'});
         }
     },
@@ -102,11 +96,7 @@ module.exports = {
             return res.status(400).json({message : 'password is not allowed to be empty.'});
         }
 
-        const usersEmail = await Users.findAll({
-            where: {
-              email: _email
-            }
-        });
+        const usersEmail = await GenericController.findByEmail(Users, _email);
 
         if (Object.keys(usersEmail).length == 0) {
             return res.status(400).json({message : 'Campos inválidos'});

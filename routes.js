@@ -13,12 +13,10 @@ routes.delete('/user/:id', UsersController.deleteUserById);
 routes.post('/users', UsersController.createUser);
 routes.post('/login', UsersController.login);
 
-// routes.get('/post/search', PostsController.findAllPosts);
+routes.get('/post', PostsController.findPostByFilter);
 routes.get('/post/:id', PostsController.findPostById);
-routes.get('/post', PostsController.findPostByTitle);
-
 routes.delete('/post/:id', PostsController.deletePostById);
 routes.post('/post/:userId', PostsController.createPost);
-routes.put('/post/:id', PostsController.updatePost);
+routes.put('/post/:id/:userId', PostsController.updatePost);
 
 module.exports = routes;
